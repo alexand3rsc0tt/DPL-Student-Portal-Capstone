@@ -38,4 +38,5 @@ class ApplicationController < ActionController::Base
     @current_location ||= current_cohort.location if current_cohort?
   end
   helper_method :current_location
+
 end

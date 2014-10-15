@@ -5,7 +5,20 @@ Rails.application.routes.draw do
   get '/contact' => 'static_pages#contact', as: :contact
   get '/web_resources' => 'static_pages#web_resources', as: :web_resources
   get '/staff/base/admin'
-  
+
+   get '/fourm' => 'forums#index', as: :forums
+  #   resources :forums
+  # get '/topics' => 'topics#index', as: :topics
+  #   resources :topics
+  # get '/posts' => 'posts#index', as: :posts
+  #   resources :posts
+
+    resources :forums do
+      resources :topics do
+        resources :posts
+      end
+    end
+
   devise_for :users,
              singular: :user,
              controllers: { registrations: 'registrations' },

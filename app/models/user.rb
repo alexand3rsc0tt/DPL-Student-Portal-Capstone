@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   has_many :notifications, dependent: :destroy
   has_many :answers, dependent: :destroy
   belongs_to :cohort
+  has_many :posts
+  has_many :topics
 
   enum role: [:student, :staff]
 
