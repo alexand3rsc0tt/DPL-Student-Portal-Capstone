@@ -10,12 +10,14 @@
     <div id="wrapper"> <!-- body wrapper -->
       <%= render '/layouts/nav' %>
       <div class="page-wrapper-header"> <!-- Header main content wrapper -->
-        <%= render '/layouts/breadcrumbs' %>
-      </div>
-      <div class="page-wrapper"> <!-- Main content wrapper -->
-        <div class="container-fluid">
-
+        <div class='breadcrumb'>
+          <%= build_breadcrumb(request.path) %>
+        </div>
+        <div class="page-wrapper"> <!-- Main content wrapper -->
+          <div class="container-fluid">
           <%= yield %>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -24,5 +26,5 @@
         <p class="Copyright"><%= link_to 'About', about_path %> | <%= link_to 'Contact', contact_path %></p>
       </div>
   </body>
-  
+
 </html>
